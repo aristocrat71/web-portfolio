@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => (
   <footer className="footer">
-    &copy; {new Date().getFullYear()} Your Name. All rights reserved.
+    &copy; 2025 Mitul Sheth. All rights reserved.
   </footer>
 );
 
