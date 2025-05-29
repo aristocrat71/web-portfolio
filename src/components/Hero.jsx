@@ -10,7 +10,7 @@ const Hero = () => {
       <img src={SampleImage} alt="Sample Image" height={200} width={200} className="hero-image"></img>
       <div className='hero-text'>
       <h1 className="greeting">// {greeting}</h1>
-      <h1 className="herotext">My name is Mitul</h1>
+      <h1 className="herotext">Mitul here👋</h1>
       </div>
     </section>
   );
