@@ -13,5 +13,15 @@
     "title": "Blog Platform",
     "description": "A Markdown-based blog site powered by Node.js.",
     "link": "https://yourblog.com"
+  },
+  {
+    "title": "Portfolio Website",
+    "description": "A personal portfolio built with React and CSS.",
+    "link": "https://yourportfolio.com"
+  },
+  {
+    "title": "Portfolio Website",
+    "description": "A personal portfolio built with React and CSS.",
+    "link": "https://yourportfolio.com"
   }
 ]
