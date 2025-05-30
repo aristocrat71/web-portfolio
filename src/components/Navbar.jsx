@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
+import owlLogo from '../assets/owl-logo.png';
+import catLogo from '../assets/cat-logo.png';
+import letterM from '../assets/newM.png';
 const Navbar = () => {
   const [showTop, setShowTop] = useState(false);
 
@@ -13,9 +15,10 @@ const Navbar = () => {
   }, []);
 
   return (
+    <>
     <nav className="navbar">
       <div className="navbar-container">
-        <h1 className="logo">//MyPortfolio</h1>
+        <span><img src={letterM} alt="Owl Logo" height={60} width={60}></img></span>
         <ul className="nav-links">
           {showTop && (
             <li>
@@ -30,6 +33,8 @@ const Navbar = () => {
         </ul>
       </div>
     </nav>
+    <div className="bleed-edge-navbar"></div>
+    </>
   );
 };
 
