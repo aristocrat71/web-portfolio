@@ -182,7 +182,7 @@ body {
 .about-section {
   position: relative;
   height: 100vh;
-  background: white;
+  background: #899ae6;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -191,8 +191,9 @@ body {
 
 .about-bg-text {
   position: absolute;
+  right: 25%;
   font-size: 20vw;
-  color: #ddd;
+  color: #bbc5f9;
   font-weight: bold;
   z-index: 0;
   user-select: none;
@@ -204,6 +205,11 @@ body {
   font-size: 1.8rem;
   text-align: center;
   color: black;
-  max-width: 600px;
+  max-width: 800px;
   padding: 1rem;
+  min-height: 6rem; /* Add this to prevent layout shift */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
