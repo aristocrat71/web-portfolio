@@ -1,0 +1,10 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #01032c;
+  background-color: #fff;
+}

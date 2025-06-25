@@ -2,6 +2,7 @@ import React from 'react';
 import projects from '../data/projects.json';
 import githubImg from '../assets/github.png';
 import reactImg from '../assets/react.svg';
+import '../styles/projects.css';
 
 const Projects = () => (
   <section id="projects" className="section">

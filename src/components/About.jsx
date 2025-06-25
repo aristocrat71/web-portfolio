@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import aboutTypewriter from '../hooks/aboutTypewriter';
+import '../styles/about.css';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);

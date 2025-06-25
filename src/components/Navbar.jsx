@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import owlLogo from '../assets/owl-logo.png';
 import catLogo from '../assets/cat-logo.png';
 import letterM from '../assets/newM.png';
+import '../styles/navbar.css';
+
 const Navbar = () => {
   const [showTop, setShowTop] = useState(false);
 
