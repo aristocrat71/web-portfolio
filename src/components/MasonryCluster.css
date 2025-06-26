@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,300;1,300&display=swap');
 
 .figma-container {
     min-height: 100vh;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Noto Sans Display', sans-serif;
   }
   
   .grid-layout {
@@ -18,7 +18,7 @@
     width: 760px;
     height: 440px;
     padding: 18px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Noto Sans Display', sans-serif;
   }
   
   .block {
@@ -30,7 +30,20 @@
     padding: 20px;
     color: black;
     font-size: 22px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Noto Sans Display', sans-serif;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+    position: relative;
+    transition: box-shadow 0.25s cubic-bezier(.4,2,.3,1), transform 0.18s cubic-bezier(.4,2,.3,1), border 0.18s cubic-bezier(.4,2,.3,1);
+    z-index: 1;
+    border: none;
+  }
+
+  .block:not(.empty-top-right):not(.empty-left-middle):not(.empty-bottom-right):hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 0 0 4px rgba(102, 175, 255, 0.25), 0 0 16px 4px #90caf9, 0 8px 32px 0 rgba(102, 175, 255, 0.18), 0 2px 16px 0 rgba(231, 16, 255, 0.822);
+    border: 2px solid #ee4ff9;
+    z-index: 3;
+    cursor: pointer;
   }
   
   /* GitHub block - square */
@@ -38,12 +51,6 @@
     grid-column: 1;
     grid-row: 1;
     background-color: #6e6e6e;
-  }
-  
-  .github-icon svg {
-    width: 44px;
-    height: 44px;
-    color: white;
   }
   
   /* Hi There block - wide rectangle */
@@ -55,7 +62,7 @@
   .hi-text {
     text-align: left;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 28px;
     line-height: 1.3;
   }
   
@@ -69,13 +76,13 @@
   }
   
   .location-icon {
-    font-size: 22px;
+    font-size: 18px;
   }
   
   .location-text {
     text-align: center;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1.2;
   }
   
@@ -93,12 +100,6 @@
     background-color: #6e6e6e;
   }
   
-  .linkedin-icon svg {
-    width: 44px;
-    height: 44px;
-    color: white;
-  }
-  
   /* Empty block left middle - square */
   .empty-left-middle {
     grid-column: 2;
@@ -114,9 +115,9 @@
   }
   
   .developer-text {
-    text-align: center;
+    text-align: right;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 25px;
     line-height: 1.3;
   }
   
@@ -131,32 +132,32 @@
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 23px;
     transform: rotate(180deg);
   }
   
-  /* About me block - wide rectangle */
+  /* About block - wide rectangle */
   .about-block {
-    grid-column: 2 / span 2;
+    grid-column: 4;
     grid-row: 3;
     text-decoration: none;
   }
   
   .about-text {
     font-weight: 600;
-    font-size: 22px;
+    font-size: 24px;
   }
   
   /* Experience block - square */
   .experience-block {
-    grid-column: 4;
+    grid-column: 2 / span 2;
     grid-row: 3;
     text-decoration: none;
   }
   
   .experience-text {
     font-weight: 600;
-    font-size: 22px;
+    font-size: 26px;
   }
   
   /* Projects block - wide rectangle */
@@ -228,6 +229,7 @@
     justify-content: center;
     min-height: 36px;
   }
+
   .connect-block {
     writing-mode: unset;
     text-orientation: unset;
@@ -259,6 +261,9 @@
   .github-block, .linkedin-block {
     margin: 0;
   }
+  .linkedin-block {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
@@ -274,6 +279,11 @@
     padding: 1rem 1.1rem;
     font-size: 1rem;
   }
+
+  .linkedin-block {
+    display: none;
+  }
+
   .masonry-tile.blank {
     display: none !important;
   }

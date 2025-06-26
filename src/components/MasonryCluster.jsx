@@ -1,28 +1,78 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './MasonryCluster.css';
+import githubIcon from '../assets/github_new.png';
+import linkedinIcon from '../assets/linkedin_new.png';
+import pinIcon from '../assets/pin.png';
+
+const GLOW_RADIUS = 80;
+
+const blockKeys = [
+  'github', 'hi', 'location', 'empty-top-right',
+  'linkedin', 'empty-left-middle', 'developer',
+  'connect', 'about', 'experience', 'projects', 'empty-bottom-right'
+];
+
+const blockSelectors = [
+  '.github-block', '.hi-block', '.location-block', '.linkedin-block',
+  '.developer-block', '.connect-block', '.about-block', '.experience-block', '.projects-block'
+];
 
 const MasonryCluster = () => {
+  const [cursor, setCursor] = useState({ x: -1000, y: -1000 });
+  const containerRef = useRef(null);
+  const [glowIndexes, setGlowIndexes] = useState([]);
+
+  useEffect(() => {
+    function handleMouseMove(e) {
+      setCursor({ x: e.clientX, y: e.clientY });
+    }
+    function handleMouseLeave() {
+      setCursor({ x: -1000, y: -1000 });
+    }
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseleave', handleMouseLeave);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const blocks = containerRef.current.querySelectorAll('.block');
+    const newGlow = [];
+    blocks.forEach((block, idx) => {
+      if (block.classList.contains('empty-top-right') || block.classList.contains('empty-left-middle') || block.classList.contains('empty-bottom-right')) return;
+      const rect = block.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dist = Math.sqrt((cx - cursor.x) ** 2 + (cy - cursor.y) ** 2);
+      if (dist < GLOW_RADIUS) newGlow.push(idx);
+    });
+    setGlowIndexes(newGlow);
+  }, [cursor]);
+
   return (
     <div className="figma-container">
-      <div className="grid-layout">
+      <div className="grid-layout" ref={containerRef}>
         {/* GitHub icon block (hyperlinked) */}
-        <a className="block github-block" href="https://github.com/aristocrat71" target="_blank" rel="noopener noreferrer">
+        <a className={`block github-block${glowIndexes.includes(0) ? ' glow-near-cursor' : ''}`} href="https://github.com/aristocrat71" target="_blank" rel="noopener noreferrer">
           <div className="github-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-            </svg>
+            <img src={githubIcon} alt="GitHub" style={{ width: 44, height: 44 }} />
           </div>
         </a>
         {/* Hi There block */}
-        <div className="block hi-block">
+        <div className={`block hi-block${glowIndexes.includes(1) ? ' glow-near-cursor' : ''}`}>
           <div className="hi-text">
             <div>Hi There !</div>
             <div>I am Mitul Sheth.</div>
           </div>
         </div>
         {/* Location block (hyperlinked) */}
-        <a className="block location-block" href="https://maps.app.goo.gl/12gnHwGSMFruFg9H6" target="_blank" rel="noopener noreferrer">
-          <div className="location-icon">📍</div>
+        <a className={`block location-block${glowIndexes.includes(2) ? ' glow-near-cursor' : ''}`} href="https://maps.app.goo.gl/12gnHwGSMFruFg9H6" target="_blank" rel="noopener noreferrer">
+          <div className="location-icon">
+            <img src={pinIcon} alt="Location" style={{ width: 31, height: 31 }} />
+          </div>
           <div className="location-text">
             <div>Pune</div>
             <div>India</div>
@@ -31,36 +81,34 @@ const MasonryCluster = () => {
         {/* Empty block top right */}
         <div className="block empty-top-right"></div>
         {/* LinkedIn block (hyperlinked) */}
-        <a className="block linkedin-block" href="https://www.linkedin.com/in/mitul-sheth71/" target="_blank" rel="noopener noreferrer">
+        <a className={`block linkedin-block${glowIndexes.includes(4) ? ' glow-near-cursor' : ''}`} href="https://www.linkedin.com/in/mitul-sheth71/" target="_blank" rel="noopener noreferrer">
           <div className="linkedin-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
+            <img src={linkedinIcon} alt="LinkedIn" style={{ width: 44, height: 44 }} />
           </div>
         </a>
         {/* Empty block left middle */}
         <div className="block empty-left-middle"></div>
         {/* Software Developer block */}
-        <div className="block developer-block">
+        <div className={`block developer-block${glowIndexes.includes(6) ? ' glow-near-cursor' : ''}`}>
           <div className="developer-text">
             <div>Software Developer</div>
             <div>//Data Science</div>
           </div>
         </div>
         {/* Let's Connect block (hyperlinked) */}
-        <a className="block connect-block" href="#contact">
+        <a className={`block connect-block${glowIndexes.includes(7) ? ' glow-near-cursor' : ''}`} href="#contact">
           <div className="connect-text">Let's Connect</div>
         </a>
-        {/* About me block (hyperlinked) */}
-        <a className="block about-block" href="#about">
-          <div className="about-text">About me</div>
-        </a>
         {/* Experience block (hyperlinked) */}
-        <a className="block experience-block" href="#experience">
-          <div className="experience-text">Experience</div>
+        <a className={`block experience-block${glowIndexes.includes(9) ? ' glow-near-cursor' : ''}`} href="#experience">
+          <div className="experience-text">Work Experience</div>
+        </a>
+        {/* About block (hyperlinked) */}
+        <a className={`block about-block${glowIndexes.includes(8) ? ' glow-near-cursor' : ''}`} href="#about">
+          <div className="about-text">About Me</div>
         </a>
         {/* Projects block (hyperlinked) */}
-        <a className="block projects-block" href="#projects">
+        <a className={`block projects-block${glowIndexes.includes(10) ? ' glow-near-cursor' : ''}`} href="#projects">
           <div className="projects-text">Projects</div>
         </a>
         {/* Empty block bottom right */}

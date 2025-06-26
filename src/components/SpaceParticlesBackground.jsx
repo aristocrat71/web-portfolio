@@ -1,8 +1,7 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import '../App.css';
 
-const PARTICLE_COUNT = 150;
-const COLORS = ['#fff', '#b3e5fc', '#90caf9', '#f3e5f5'];
+const COLORS = ['#fff', '#b3e5fc', '#90caf9', '#e3e3e3'];
 
 function randomBetween(a, b) {
   return Math.random() * (b - a) + a;
@@ -12,9 +11,24 @@ function distance(x1, y1, x2, y2) {
   return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 }
 
+const getResponsiveParticleCount = () => {
+  if (window.innerWidth <= 600) return 70;
+  if (window.innerWidth <= 900) return 110;
+  return 145;
+};
+
 const SpaceParticlesBackground = () => {
   const canvasRef = useRef(null);
   const mouse = useRef({ x: null, y: null });
+  const [particleCount, setParticleCount] = useState(getResponsiveParticleCount());
+
+  useEffect(() => {
+    const handleResize = () => {
+      setParticleCount(getResponsiveParticleCount());
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const setCanvasSize = () => {
@@ -33,7 +47,7 @@ const SpaceParticlesBackground = () => {
 
     let { width, height, dpr, ctx } = setCanvasSize();
 
-    let particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+    let particles = Array.from({ length: particleCount }, () => ({
       x: randomBetween(0, width),
       y: randomBetween(0, height),
       r: randomBetween(1.2, 2.2),
@@ -110,7 +124,7 @@ const SpaceParticlesBackground = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
+  }, [particleCount]);
 
   return (
     <canvas ref={canvasRef} className="space-particles-bg-canvas" style={{position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0}} />
