@@ -22,13 +22,16 @@
   }
   
   .block {
-    background-color: white;
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    color: black;
     font-size: 22px;
     font-family: 'Noto Sans Display', sans-serif;
     box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
@@ -50,7 +53,8 @@
   .github-block {
     grid-column: 1;
     grid-row: 1;
-    background-color: #6e6e6e;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
   }
   
   /* Hi There block - wide rectangle */
@@ -62,7 +66,7 @@
   .hi-text {
     text-align: left;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 29px;
     line-height: 1.3;
   }
   
@@ -74,15 +78,11 @@
     text-decoration: none;
     gap: 4px;
   }
-  
-  .location-icon {
-    font-size: 18px;
-  }
-  
+
   .location-text {
     text-align: center;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 25px;
     line-height: 1.2;
   }
   
@@ -97,7 +97,8 @@
   .linkedin-block {
     grid-column: 1;
     grid-row: 2;
-    background-color: #6e6e6e;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
   }
   
   /* Empty block left middle - square */
@@ -117,7 +118,7 @@
   .developer-text {
     text-align: right;
     font-weight: 600;
-    font-size: 25px;
+    font-size: 28px;
     line-height: 1.3;
   }
   
@@ -132,7 +133,7 @@
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-weight: 600;
-    font-size: 23px;
+    font-size: 26px;
     transform: rotate(180deg);
   }
   
@@ -145,7 +146,7 @@
   
   .about-text {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 26px;
   }
   
   /* Experience block - square */
@@ -157,7 +158,7 @@
   
   .experience-text {
     font-weight: 600;
-    font-size: 26px;
+    font-size: 28px;
   }
   
   /* Projects block - wide rectangle */
@@ -169,7 +170,7 @@
   
   .projects-text {
     font-weight: 600;
-    font-size: 26px;
+    font-size: 28px;
   }
   
   /* Empty block bottom right - square */

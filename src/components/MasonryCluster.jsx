@@ -64,18 +64,14 @@ const MasonryCluster = () => {
         {/* Hi There block */}
         <div className={`block hi-block${glowIndexes.includes(1) ? ' glow-near-cursor' : ''}`}>
           <div className="hi-text">
-            <div>Hi There !</div>
+            <div>Hi There ! 👋</div>
             <div>I am Mitul Sheth.</div>
           </div>
         </div>
         {/* Location block (hyperlinked) */}
         <a className={`block location-block${glowIndexes.includes(2) ? ' glow-near-cursor' : ''}`} href="https://maps.app.goo.gl/12gnHwGSMFruFg9H6" target="_blank" rel="noopener noreferrer">
-          <div className="location-icon">
-            <img src={pinIcon} alt="Location" style={{ width: 31, height: 31 }} />
-          </div>
           <div className="location-text">
-            <div>Pune</div>
-            <div>India</div>
+            <div>📍Pune, India</div>
           </div>
         </a>
         {/* Empty block top right */}
