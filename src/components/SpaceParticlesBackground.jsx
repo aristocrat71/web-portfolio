@@ -17,16 +17,21 @@ const SpaceParticlesBackground = () => {
   const mouse = useRef({ x: null, y: null });
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let dpr = window.devicePixelRatio || 1;
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const setCanvasSize = () => {
+      const canvas = canvasRef.current;
+      let dpr = window.devicePixelRatio || 1;
+      let width = Math.max(window.innerWidth, document.documentElement.clientWidth);
+      let height = Math.max(window.innerHeight, document.documentElement.clientHeight);
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      const ctx = canvas.getContext('2d');
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      return { width, height, dpr, ctx };
+    };
+
+    let { width, height, dpr, ctx } = setCanvasSize();
 
     let particles = Array.from({ length: PARTICLE_COUNT }, () => ({
       x: randomBetween(0, width),
@@ -87,13 +92,7 @@ const SpaceParticlesBackground = () => {
     animate();
 
     function handleResize() {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      canvas.style.width = width + 'px';
-      canvas.style.height = height + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ({ width, height, dpr, ctx } = setCanvasSize());
     }
     function handleMouseMove(e) {
       mouse.current.x = e.clientX;
@@ -114,7 +113,7 @@ const SpaceParticlesBackground = () => {
   }, []);
 
   return (
-    <canvas ref={canvasRef} className="space-particles-bg-canvas" />
+    <canvas ref={canvasRef} className="space-particles-bg-canvas" style={{position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0}} />
   );
 };
 
