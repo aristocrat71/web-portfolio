@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+.figma-container {
+    min-height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 150px 260px 150px 150px;
+    grid-template-rows: 100px 100px 100px 100px;
+    gap: 14px;
+    width: 760px;
+    height: 440px;
+    padding: 18px;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .block {
+    background-color: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: black;
+    font-size: 22px;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  /* GitHub block - square */
+  .github-block {
+    grid-column: 1;
+    grid-row: 1;
+    background-color: #6e6e6e;
+  }
+  
+  .github-icon svg {
+    width: 44px;
+    height: 44px;
+    color: white;
+  }
+  
+  /* Hi There block - wide rectangle */
+  .hi-block {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  
+  .hi-text {
+    text-align: left;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.3;
+  }
+  
+  /* Location block - square */
+  .location-block {
+    grid-column: 3;
+    grid-row: 1;
+    flex-direction: column;
+    text-decoration: none;
+    gap: 4px;
+  }
+  
+  .location-icon {
+    font-size: 22px;
+  }
+  
+  .location-text {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  
+  /* Empty block top right - square */
+  .empty-top-right {
+    grid-column: 4;
+    grid-row: 1;
+    background-color: #f0f0f0;
+  }
+  
+  /* LinkedIn block - square */
+  .linkedin-block {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: #6e6e6e;
+  }
+  
+  .linkedin-icon svg {
+    width: 44px;
+    height: 44px;
+    color: white;
+  }
+  
+  /* Empty block left middle - square */
+  .empty-left-middle {
+    grid-column: 2;
+    grid-row: 2;
+    background-color: #f0f0f0;
+  }
+  
+  /* Software Developer block - wide rectangle */
+  .developer-block {
+    grid-column: 3 / span 2;
+    grid-row: 2;
+    text-decoration: none;
+  }
+  
+  .developer-text {
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+  }
+  
+  /* Let's Connect block - tall rectangle */
+  .connect-block {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+    text-decoration: none;
+  }
+  
+  .connect-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-weight: 600;
+    font-size: 20px;
+    transform: rotate(180deg);
+  }
+  
+  /* About me block - wide rectangle */
+  .about-block {
+    grid-column: 2 / span 2;
+    grid-row: 3;
+    text-decoration: none;
+  }
+  
+  .about-text {
+    font-weight: 600;
+    font-size: 22px;
+  }
+  
+  /* Experience block - square */
+  .experience-block {
+    grid-column: 4;
+    grid-row: 3;
+    text-decoration: none;
+  }
+  
+  .experience-text {
+    font-weight: 600;
+    font-size: 22px;
+  }
+  
+  /* Projects block - wide rectangle */
+  .projects-block {
+    grid-column: 2 / span 2;
+    grid-row: 4;
+    text-decoration: none;
+  }
+  
+  .projects-text {
+    font-weight: 600;
+    font-size: 26px;
+  }
+  
+  /* Empty block bottom right - square */
+  .empty-bottom-right {
+    grid-column: 4;
+    grid-row: 4;
+    background-color: #f0f0f0;
+  }
+
+@media (max-width: 900px) {
+  .figma-container {
+    padding: 8px;
+  }
+  .grid-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 10px;
+    padding: 0;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+  .block {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 14px;
+    padding: 10px 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
+  .github-block, .linkedin-block {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 6px 0 0;
+    display: inline-flex;
+    background-color: #6e6e6e;
+  }
+  .github-block {
+    margin-right: 6px;
+  }
+  .linkedin-block {
+    margin-left: 6px;
+  }
+  .hi-block, .location-block, .developer-block, .about-block, .experience-block, .projects-block, .connect-block {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 14px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+  }
+  .connect-block {
+    writing-mode: unset;
+    text-orientation: unset;
+    transform: none;
+    min-height: 36px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .connect-text {
+    writing-mode: unset;
+    text-orientation: unset;
+    transform: none;
+    font-size: 15px;
+  }
+  .empty-top-right, .empty-left-middle, .empty-bottom-right {
+    display: none !important;
+  }
+  .github-linkedin-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+  .github-block, .linkedin-block {
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .masonry-cluster-grid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    width: 100%;
+    padding: 0;
+  }
+  .masonry-tile {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    padding: 1rem 1.1rem;
+    font-size: 1rem;
+  }
+  .masonry-tile.blank {
+    display: none !important;
+  }
+} 
