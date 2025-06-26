@@ -67,4 +67,10 @@ body, html, #root, .app-root {
     min-height: 40vh;
     padding: 0 2vw;
   }
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s cubic-bezier(.4,2,.3,1);
 } 

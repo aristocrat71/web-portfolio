@@ -1,0 +1,35 @@
+.start-loading-wrapper {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  position: absolute;
+  top: 45%;
+  left: 40%;
+  background: transparent;
+  pointer-events: none;
+}
+
+.start-greeting {
+  font-size: 2.7rem;
+  font-family: 'Noto Sans Display', 'Segoe UI', 'Arial', sans-serif;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.32s cubic-bezier(.4,2,.3,1), transform 0.32s cubic-bezier(.4,2,.3,1);
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  user-select: none;
+  text-align: left;
+  font-size: 2.5rem;
+}
+
+.start-greeting.in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (max-width: 600px) {
+  .start-greeting {
+    font-size: 1.5rem;
+  }
+} 
