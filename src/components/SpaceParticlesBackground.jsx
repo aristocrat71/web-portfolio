@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import '../App.css';
 
-const PARTICLE_COUNT = 120;
+const PARTICLE_COUNT = 150;
 const COLORS = ['#fff', '#b3e5fc', '#90caf9', '#f3e5f5'];
 
 function randomBetween(a, b) {
