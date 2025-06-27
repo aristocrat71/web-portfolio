@@ -5,6 +5,7 @@ import StartGreeting from './components/LoadingBoxes';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import StickyNavbar from './components/StickyNavbar';
 import './App.css';
 import { useState } from 'react';
 
@@ -20,13 +21,15 @@ function App() {
   return (
     <div className="app-root">
       <SpaceParticlesBackground />
+      
       {loading ? (
         <div className={fadeOut ? 'fade-out' : ''}>
           <StartGreeting duration={300} onComplete={handleLoadingComplete} />
         </div>
       ) : (
         <>
-          <div className="hero-section">
+          <StickyNavbar />
+          <div className="hero-section" id="home">
             <div className="centered-masonry-wrapper">
               <MasonryCluster />
             </div>
