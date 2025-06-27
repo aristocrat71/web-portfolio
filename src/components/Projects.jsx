@@ -1,8 +1,9 @@
 import React from 'react';
 import './Experience.css';
 import projects from '../data/projects.json';
-import githubLogo from '../assets/github_new.png';
+import githubLogo from '../assets/github_inv.png';
 import liveLogo from '../assets/live.png';
+import ImageSlider from './ImageSlider';
 
 const Projects = () => {
   return (
@@ -19,7 +20,7 @@ const Projects = () => {
   );
 };
 
-const ProjectCard = ({ name, tech, github, livebool, live, desc }) => {
+const ProjectCard = ({ name, tech, github, livebool, live, desc, images }) => {
   let techList = [];
   if (tech) {
     techList = tech.replace(/[{}]/g, '').split(',').map(t => t.trim());
@@ -27,6 +28,7 @@ const ProjectCard = ({ name, tech, github, livebool, live, desc }) => {
   return (
     <div className="tilted-card project-card">
       <div className="tilted-card-company">{name}</div>
+      <div className="tilted-card-desc">{desc}</div>
       {techList.length > 0 && (
         <div className="tilted-card-tech">
           {techList.map((t, i) => (
@@ -34,6 +36,7 @@ const ProjectCard = ({ name, tech, github, livebool, live, desc }) => {
           ))}
         </div>
       )}
+      <ImageSlider images={images} />
       <div className="project-card-links">
         <a href={github} target="_blank" rel="noopener noreferrer" className="project-card-link">
           <img src={githubLogo} alt="GitHub" className="project-card-logo" />
@@ -44,7 +47,6 @@ const ProjectCard = ({ name, tech, github, livebool, live, desc }) => {
           </a>
         )}
       </div>
-      <div className="tilted-card-desc">{desc}</div>
     </div>
   );
 };

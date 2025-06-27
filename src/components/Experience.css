@@ -43,10 +43,17 @@
 
 .experience-cards-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   justify-content: center;
   width: 100%;
+}
+
+/* Center the 3rd card when it wraps to the next row */
+.experience-cards-row .tilted-card:nth-child(3) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 50%;
 }
 
 .tilted-card {
@@ -56,7 +63,7 @@
   /* min-width: 380px;
   max-width: 520px; */
   min-height: 220px;
-  padding: 64px 32px;
+  padding: 30px 32px;
   color: #e3e3e3;
   transition: box-shadow 0.18s, transform 0.18s;
   position: relative;
@@ -72,7 +79,7 @@
 }
 
 .tilted-card-company {
-  font-size: 1.35rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 10px;
@@ -91,10 +98,11 @@
 }
 
 .tilted-card-tech {
-  margin-top: 16px;
+  margin-top: 5px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
+  font-size: 0.8rem;
 }
 
 .tilted-card-tech-tag {
@@ -117,19 +125,18 @@
 /* Show description on hover for desktop */
 @media (hover: hover) and (pointer: fine) {
   .tilted-card-desc {
-    display: none;
-    opacity: 0;
-    pointer-events: none;
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
     transition: opacity 0.18s;
     background: rgba(255,255,255,0.07);
     border-radius: 10px;
     padding: 18px 24px;
     box-shadow: 0 1px 4px 0 rgba(16, 20, 40, 0.08);
-  }
-  .tilted-card:hover .tilted-card-desc {
-    display: block;
-    opacity: 1;
-    pointer-events: auto;
+    margin-bottom: 16px;
+    color: #e3e3e3;
+    font-size: 1.05rem;
+    line-height: 1.6;
   }
   .tilted-card:hover {
     box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.10), 0 0 12px 2px #90caf9, 0 2px 8px 0 rgba(108, 99, 255, 0.08);
@@ -143,13 +150,10 @@
 /* On mobile, show description when .show-desc is set (tap) */
 @media (hover: none) and (pointer: coarse) {
   .tilted-card-desc {
-    display: none;
-  }
-  .tilted-card.show-desc .tilted-card-desc {
     display: block;
     opacity: 1;
     pointer-events: auto;
-    margin-top: 18px;
+    margin-bottom: 16px;
     color: #e3e3e3;
     font-size: 1.05rem;
     line-height: 1.6;
@@ -165,6 +169,11 @@
   .experience-cards-row {
     grid-template-columns: repeat(2, 1fr);
   }
+  .experience-cards-row .tilted-card:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 50%;
+  }
 }
 
 @media (max-width: 900px) {
@@ -172,7 +181,8 @@
     padding: 32px 8vw 24px 8vw;
   }
   .experience-cards-row {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 24px;
     align-items: stretch;
   }
@@ -184,6 +194,12 @@
     padding: 28px 10px;
     min-height: 180px;
   }
+  /* Remove the grid column override for 3rd card on mobile */
+  .experience-cards-row .tilted-card:nth-child(3) {
+    grid-column: auto;
+    justify-self: auto;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -191,7 +207,7 @@
     padding: 18px 2vw 12px 2vw;
   }
   .experience-title {
-    font-size: 2.1rem;
+    font-size: 1.5rem;
   }
   .tilted-card {
     font-size: 0.95rem;

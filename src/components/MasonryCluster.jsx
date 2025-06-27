@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import './MasonryCluster.css';
 import githubIcon from '../assets/github_new.png';
 import linkedinIcon from '../assets/linkedin_new.png';
-import pinIcon from '../assets/pin.png';
 
 const GLOW_RADIUS = 80;
 
@@ -59,6 +58,7 @@ const MasonryCluster = () => {
     const aboutBtn = container.querySelector('.about-block');
     const experienceBtn = container.querySelector('.experience-block');
     const projectsBtn = container.querySelector('.projects-block');
+    const connectBtn = container.querySelector('.connect-block');
     const handleClick = (e, href) => {
       if (href && href.startsWith('#')) {
         const target = document.getElementById(href.slice(1));
@@ -77,10 +77,14 @@ const MasonryCluster = () => {
     if (projectsBtn) {
       projectsBtn.addEventListener('click', (e) => handleClick(e, projectsBtn.getAttribute('href')));
     }
+    if (connectBtn) {
+      connectBtn.addEventListener('click', (e) => handleClick(e, connectBtn.getAttribute('href')));
+    }
     return () => {
       if (aboutBtn) aboutBtn.removeEventListener('click', (e) => handleClick(e, aboutBtn.getAttribute('href')));
       if (experienceBtn) experienceBtn.removeEventListener('click', (e) => handleClick(e, experienceBtn.getAttribute('href')));
       if (projectsBtn) projectsBtn.removeEventListener('click', (e) => handleClick(e, projectsBtn.getAttribute('href')));
+      if (connectBtn) connectBtn.removeEventListener('click', (e) => handleClick(e, connectBtn.getAttribute('href')));
     };
   }, []);
 
