@@ -2,8 +2,8 @@ import React from 'react';
 import './About.css';
 
 const programmingTools = [
-  'Go', 'Java', 'NodeJS', 'Python', 'PostgreSQL', 'MySQL',
-  'Redis', 'Docker', 'Kubernetes', 'Jenkins', 'AWS'
+  'C++', 'Python', 'TensorFlow', 'Keras', 'PyTorch', 'PostgreSQL', 'MySQL', 'React', 'NodeJS',
+  'Docker', 'Git', 'GitHub', 'Linux'
 ];
 
 const About = () => {
@@ -20,7 +20,7 @@ const About = () => {
           <div className="about-skills">
             <div className="about-section">
               <div className="about-section-title">
-                <span className="about-section-icon">{'</>'}</span> Programming &amp; Tools
+                &gt;_Can cook with:
               </div>
               <div className="about-tags">
                 {programmingTools.map((tool) => (
