@@ -52,14 +52,14 @@ const MasonryCluster = () => {
     setGlowIndexes(newGlow);
   }, [cursor]);
 
-  // Smooth scroll effect for About button
+  // Smooth scroll effect for About and Experience buttons
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
     const aboutBtn = container.querySelector('.about-block');
-    if (!aboutBtn) return;
-    const handleClick = (e) => {
-      const href = aboutBtn.getAttribute('href');
+    const experienceBtn = container.querySelector('.experience-block');
+    const projectsBtn = container.querySelector('.projects-block');
+    const handleClick = (e, href) => {
       if (href && href.startsWith('#')) {
         const target = document.getElementById(href.slice(1));
         if (target) {
@@ -68,9 +68,19 @@ const MasonryCluster = () => {
         }
       }
     };
-    aboutBtn.addEventListener('click', handleClick);
+    if (aboutBtn) {
+      aboutBtn.addEventListener('click', (e) => handleClick(e, aboutBtn.getAttribute('href')));
+    }
+    if (experienceBtn) {
+      experienceBtn.addEventListener('click', (e) => handleClick(e, experienceBtn.getAttribute('href')));
+    }
+    if (projectsBtn) {
+      projectsBtn.addEventListener('click', (e) => handleClick(e, projectsBtn.getAttribute('href')));
+    }
     return () => {
-      aboutBtn.removeEventListener('click', handleClick);
+      if (aboutBtn) aboutBtn.removeEventListener('click', (e) => handleClick(e, aboutBtn.getAttribute('href')));
+      if (experienceBtn) experienceBtn.removeEventListener('click', (e) => handleClick(e, experienceBtn.getAttribute('href')));
+      if (projectsBtn) projectsBtn.removeEventListener('click', (e) => handleClick(e, projectsBtn.getAttribute('href')));
     };
   }, []);
 
@@ -88,11 +98,9 @@ const MasonryCluster = () => {
           </div>
         </a>
         {/* Hi There block */}
-        <div className={`block hi-block${glowIndexes.includes(1) ? ' glow-near-cursor' : ''}`}>
-          <div className="hi-text">
-            <div>&gt;_ my_image </div> 
-          </div>
-        </div>
+        <a className={`block hi-block${glowIndexes.includes(1) ? ' glow-near-cursor' : ''}`} href="https://drive.google.com/file/d/1eUYpN-34oYDib99id6B1CtPAyxouc4Es/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <div className="hi-text">&gt;_ view resume.pdf</div>
+        </a>
         {/* Location block (hyperlinked) */}
         <a className={`block location-block${glowIndexes.includes(2) ? ' glow-near-cursor' : ''}`} href="https://maps.app.goo.gl/12gnHwGSMFruFg9H6" target="_blank" rel="noopener noreferrer">
           <div className="location-text">

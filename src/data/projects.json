@@ -1,0 +1,26 @@
+[
+    {
+      "name": "DogVision",
+      "tech": "{Tensorflow, Keras, Flask, React, Pandas",
+      "github": "https://github.com/aristocrat71/DogVision",
+      "livebool": true,
+      "live": "aristocrat71-dogvision.netlify.app",
+      "desc": "A web app that uses a pre-trained model to detect the breed of dogs in images. It uses Tensorflow and Keras for the model and Flask for the backend. It uses React for the frontend. Note: The backend is not hosted on a server since the model is too large to be hosted on a free server."
+    },
+    {
+        "name": "dev/Mitul - Web Portfolio",
+        "tech": "{React, ReactBits Components, CSS, HTML, JavaScript}",
+        "github": "https://github.com/aristocrat71/web-portfolio",
+        "livebool": true,
+        "live": "aristocrat71-dogvision.netlify.app",
+        "desc": "My personal web portfolio built with React. It uses ReactBits Components for the UI and CSS for the styling. Feel free to check it out!"
+    },
+    {
+        "name": "Bone.ai",
+        "tech": "{Tensorflow, YOLOv8, React, Spring Boot,  Git, GitHub}",
+        "github": "https://github.com/aristocrat71/Bone.ai",
+        "livebool": false,
+        "live": "https://notliveyet.com/",
+        "desc": "A web app that can be used to detect fractures in X-ray of bones. It uses Tensorflow and YOLOv8 for the model and Spring Boot for the backend. It uses React for the frontend."
+    }
+  ] 

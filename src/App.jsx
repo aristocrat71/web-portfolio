@@ -2,6 +2,8 @@ import SpaceParticlesBackground from './components/SpaceParticlesBackground';
 import MasonryCluster from './components/MasonryCluster';
 import About from './components/About';
 import StartGreeting from './components/LoadingBoxes';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
 import './App.css';
 import { useState } from 'react';
 
@@ -29,6 +31,8 @@ function App() {
             </div>
           </div>
           <About />
+          <Experience />
+          <Projects />
         </>
       )}
     </div>

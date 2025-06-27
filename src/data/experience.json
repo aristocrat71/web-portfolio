@@ -1,0 +1,16 @@
+[
+  {
+    "company": "NRSC - ISRO, Hyderabad",
+    "role": "Machine Learning Intern",
+    "duration": "3 months | May-July 2024",
+    "desc": "Worked on API development & model development for crop-mapping and yield prediction.",
+    "tech": "{Scikit-learn, Pandas, Numpy, Matplotlib, Seaborn}"
+  },
+  {
+    "company": "Canspirit.ai - Pune",
+    "role": "Full Stack Developer",
+    "duration": "6 months | June-December 2024",
+    "desc": "Worked on several projects including a Docx-crafter, Wine-commerce website, and a Chatbot.",
+    "tech": "{React, NodeJS, Express, MongoDB, Git, GitHub, Linux}"
+  }
+] 

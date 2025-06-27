@@ -19,8 +19,8 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    font-family: 'Noto Sans Display', sans-serif;
     font-family: 'Press Start 2P', cursive;
+    font-family: 'Noto Sans Display', sans-serif;
   }
   
   .grid-layout {
@@ -69,6 +69,7 @@
   .hi-block {
     grid-column: 2;
     grid-row: 1;
+    text-decoration: none;
   }
   
   .hi-text {
@@ -132,7 +133,7 @@
     text-align: right;
     font-weight: 600;
     font-size: 20px;
-    font-size: 20px;
+    font-size: 30px;
     line-height: 1.3;
   }
   
