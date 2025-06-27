@@ -1,17 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .start-loading-wrapper {
   width: 100vw;
   height: 100vh;
   z-index: 1000;
-  position: absolute;
-  top: 45%;
-  left: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: transparent;
   pointer-events: none;
 }
 
 .start-greeting {
   font-size: 2.7rem;
-  font-family: 'Noto Sans Display', 'Segoe UI', 'Arial', sans-serif;
+  font-family: 'Noto Sans Display', sans-serif;
+  font-family: 'Press Start 2P', cursive;
   color: #fff;
   opacity: 0;
   transform: translateY(30px) scale(0.98);

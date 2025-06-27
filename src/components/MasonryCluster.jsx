@@ -52,7 +52,33 @@ const MasonryCluster = () => {
     setGlowIndexes(newGlow);
   }, [cursor]);
 
+  // Smooth scroll effect for About button
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const aboutBtn = container.querySelector('.about-block');
+    if (!aboutBtn) return;
+    const handleClick = (e) => {
+      const href = aboutBtn.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const target = document.getElementById(href.slice(1));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+    aboutBtn.addEventListener('click', handleClick);
+    return () => {
+      aboutBtn.removeEventListener('click', handleClick);
+    };
+  }, []);
+
   return (
+    <div className="masonry-cluster-root">
+    <div className="hello-there">
+      <h1> &gt;_ Mitul Sheth</h1>
+    </div>
     <div className="figma-container">
       <div className="grid-layout" ref={containerRef}>
         {/* GitHub icon block (hyperlinked) */}
@@ -64,8 +90,7 @@ const MasonryCluster = () => {
         {/* Hi There block */}
         <div className={`block hi-block${glowIndexes.includes(1) ? ' glow-near-cursor' : ''}`}>
           <div className="hi-text">
-            <div>Hi There ! 👋</div>
-            <div>I am Mitul Sheth.</div>
+            <div>&gt;_ my_image </div> 
           </div>
         </div>
         {/* Location block (hyperlinked) */}
@@ -110,6 +135,7 @@ const MasonryCluster = () => {
         {/* Empty block bottom right */}
         <div className="block empty-bottom-right"></div>
       </div>
+    </div>
     </div>
   );
 };

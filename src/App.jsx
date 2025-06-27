@@ -1,5 +1,6 @@
 import SpaceParticlesBackground from './components/SpaceParticlesBackground';
 import MasonryCluster from './components/MasonryCluster';
+import About from './components/About';
 import StartGreeting from './components/LoadingBoxes';
 import './App.css';
 import { useState } from 'react';
@@ -16,15 +17,20 @@ function App() {
   return (
     <div className="app-root">
       <SpaceParticlesBackground />
-      <div className="centered-masonry-wrapper">
-        {loading ? (
-          <div className={fadeOut ? 'fade-out' : ''}>
-            <StartGreeting duration={300} onComplete={handleLoadingComplete} />
+      {loading ? (
+        <div className={fadeOut ? 'fade-out' : ''}>
+          <StartGreeting duration={300} onComplete={handleLoadingComplete} />
+        </div>
+      ) : (
+        <>
+          <div className="hero-section">
+            <div className="centered-masonry-wrapper">
+              <MasonryCluster />
+            </div>
           </div>
-        ) : (
-          <MasonryCluster />
-        )}
-      </div>
+          <About />
+        </>
+      )}
     </div>
   );
 }

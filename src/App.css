@@ -7,6 +7,11 @@ body, html, #root, .app-root {
   padding: 0;
   background: black;
   position: relative;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .space-particles-bg-canvas {
@@ -32,21 +37,30 @@ body, html, #root, .app-root {
 }
 
 .centered-masonry-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
+  top: 0;
+  left: 0;
   width: 60vw;
   max-width: 900px;
   min-width: 320px;
-  height: 60vh;
+  height: 100vh;
   max-height: 700px;
   min-height: 320px;
-  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
   pointer-events: auto;
+}
+
+.hero-section {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 900px) {
@@ -73,4 +87,8 @@ body, html, #root, .app-root {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.7s cubic-bezier(.4,2,.3,1);
+}
+
+#about {
+  scroll-margin-top: 40px;
 } 

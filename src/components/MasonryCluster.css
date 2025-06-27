@@ -1,13 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.masonry-cluster-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-family: 'Noto Sans Display', sans-serif;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  font-weight: 500;
+}
 
 .figma-container {
-    min-height: 100vh;
     background-color: rgba(0, 0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
     font-family: 'Noto Sans Display', sans-serif;
+    font-family: 'Press Start 2P', cursive;
   }
   
   .grid-layout {
@@ -18,23 +31,18 @@
     width: 760px;
     height: 440px;
     padding: 18px;
-    font-family: 'Noto Sans Display', sans-serif;
   }
   
   .block {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
     font-size: 22px;
-    font-family: 'Noto Sans Display', sans-serif;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
     position: relative;
     transition: box-shadow 0.25s cubic-bezier(.4,2,.3,1), transform 0.18s cubic-bezier(.4,2,.3,1), border 0.18s cubic-bezier(.4,2,.3,1);
     z-index: 1;
@@ -44,7 +52,7 @@
   .block:not(.empty-top-right):not(.empty-left-middle):not(.empty-bottom-right):hover {
     transform: translateY(-10px) scale(1.04);
     box-shadow: 0 0 0 4px rgba(102, 175, 255, 0.25), 0 0 16px 4px #90caf9, 0 8px 32px 0 rgba(102, 175, 255, 0.18), 0 2px 16px 0 rgba(231, 16, 255, 0.822);
-    border: 2px solid #ee4ff9;
+    border: 2px solid #f131ff;
     z-index: 3;
     cursor: pointer;
   }
@@ -66,7 +74,8 @@
   .hi-text {
     text-align: left;
     font-weight: 600;
-    font-size: 29px;
+    font-size: 18px;
+    font-size: 25px;
     line-height: 1.3;
   }
   
@@ -105,6 +114,7 @@
   .empty-left-middle {
     grid-column: 2;
     grid-row: 2;
+    width: 60%;
     background-color: #f0f0f0;
   }
   
@@ -113,12 +123,16 @@
     grid-column: 3 / span 2;
     grid-row: 2;
     text-decoration: none;
+    padding: 10px;
+    margin-left: -20%;
+    width: calc(100% + 15%);
   }
   
   .developer-text {
     text-align: right;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 20px;
+    font-size: 20px;
     line-height: 1.3;
   }
   
@@ -268,6 +282,10 @@
 }
 
 @media (max-width: 600px) {
+  .masonry-cluster-root {
+    font-size: 10px;
+  }
+
   .masonry-cluster-grid {
     grid-template-columns: 1fr;
     gap: 0.7rem;
@@ -279,6 +297,10 @@
     grid-row: auto !important;
     padding: 1rem 1.1rem;
     font-size: 1rem;
+  }
+
+  .location-block {
+    font-size: 5px;
   }
 
   .linkedin-block {
