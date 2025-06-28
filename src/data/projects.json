@@ -15,7 +15,7 @@
         "livebool": true,
         "live": "aristocrat71-dogvision.netlify.app",
         "desc": "My personal web portfolio built with React. You are currently on it!",
-        "images": ["/images/portfolio.png"]
+        "images": ["/images/portfolio.png", "/images/portfolio2.png"]
     },
     {
         "name": "Bone.ai",

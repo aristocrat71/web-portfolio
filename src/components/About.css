@@ -59,7 +59,7 @@
 
 .about-description {
   flex: 1.2;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1.7;
   color: #e3e3e3;
   background: rgba(20, 27, 51, 0.72);
@@ -115,11 +115,11 @@
 
 .about-tag {
   background: rgba(255,255,255,0.10);
-  color: #e3e3e3;
+  color: #6c63ff;
   border-radius: 22px;
   padding: 7px 20px;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 750;
   margin-bottom: 6px;
   box-shadow: 0 1px 4px 0 rgba(16, 20, 40, 0.08);
   transition: background 0.18s;
@@ -127,7 +127,7 @@
 }
 
 .about-tag:hover {
-  background: rgba(108, 99, 255, 0.18);
+  background: #6c63ff;
   color: #fff;
 }
 

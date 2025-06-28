@@ -4,17 +4,27 @@ import './StickyNavbar.css';
 const sections = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Exp' },
+  { id: 'experience', label: 'WorkXP' },
   { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Connect' },
 ];
 
 const StickyNavbar = () => {
   const [active, setActive] = useState('home');
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       console.log(window.scrollY);
+      
+      // Check if we should show the navbar (when about section starts)
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        const aboutOffset = aboutSection.offsetTop;
+        const shouldShow = window.scrollY >= aboutOffset - 100; // Show 100px before about section
+        setIsVisible(shouldShow);
+      }
+      
       // Determine active section
       let found = false;
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -40,7 +50,7 @@ const StickyNavbar = () => {
   };
 
   return (
-    <nav className="sticky-navbar">
+    <nav className={`sticky-navbar ${isVisible ? 'visible' : ''}`}>
       {sections.map((sec) => (
         <button
           key={sec.id}

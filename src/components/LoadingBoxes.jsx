@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './LoadingBoxes.css';
 
-const GREETINGS = ['Hello!', 'Namaste', 'Hola!', 'Bonjour!'];
+const GREETINGS = ['Hello!', 'Hola!', 'Bonjour!', 'Namaste'];
 
 const StartGreeting = ({ duration, onComplete }) => {
   const [index, setIndex] = useState(0);

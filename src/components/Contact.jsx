@@ -32,7 +32,7 @@ const Contact = () => {
           <div className="contact-section">
             <h2 className="contact-section-title">Get in Touch</h2>
             <p className="contact-description">
-              I'm always open to discussing new opportunities, interesting projects, or open source contributions.
+              I'm always open to discussing new opportunities, interesting projects, or open source contributions or you know, chit-chat ? :)
             </p>
             
             <div className="contact-email" onClick={handleEmailClick}>

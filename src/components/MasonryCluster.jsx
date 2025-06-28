@@ -91,7 +91,7 @@ const MasonryCluster = () => {
   return (
     <div className="masonry-cluster-root">
     <div className="hello-there">
-      <h1> &gt;_ Mitul Sheth</h1>
+      <h1> &gt;_ Mitul Sheth<span className="dot-accent">.</span></h1>
     </div>
     <div className="figma-container">
       <div className="grid-layout" ref={containerRef}>
@@ -103,7 +103,7 @@ const MasonryCluster = () => {
         </a>
         {/* Hi There block */}
         <a className={`block hi-block${glowIndexes.includes(1) ? ' glow-near-cursor' : ''}`} href="https://drive.google.com/file/d/1eUYpN-34oYDib99id6B1CtPAyxouc4Es/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-          <div className="hi-text">&gt;_ view resume.pdf</div>
+          <div className="hi-text">&gt;_resume</div>
         </a>
         {/* Location block (hyperlinked) */}
         <a className={`block location-block${glowIndexes.includes(2) ? ' glow-near-cursor' : ''}`} href="https://maps.app.goo.gl/12gnHwGSMFruFg9H6" target="_blank" rel="noopener noreferrer">

@@ -1,7 +1,6 @@
 body, html, #root, .app-root {
   width: 100vw;
   min-width: 100vw;
-  height: 100vh;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -91,4 +90,19 @@ html {
 
 #about {
   scroll-margin-top: 40px;
+}
+
+/* Custom Scrollbar Color */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6c63ff;
+  border-radius: 4px;
+}
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6c63ff rgba(255, 255, 255, 0.05);
 } 

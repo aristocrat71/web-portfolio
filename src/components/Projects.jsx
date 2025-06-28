@@ -29,14 +29,6 @@ const ProjectCard = ({ name, tech, github, livebool, live, desc, images }) => {
     <div className="tilted-card project-card">
       <div className="tilted-card-company">{name}</div>
       <div className="tilted-card-desc">{desc}</div>
-      {techList.length > 0 && (
-        <div className="tilted-card-tech">
-          {techList.map((t, i) => (
-            <span className="tilted-card-tech-tag" key={i}>{t}</span>
-          ))}
-        </div>
-      )}
-      <ImageSlider images={images} />
       <div className="project-card-links">
         <a href={github} target="_blank" rel="noopener noreferrer" className="project-card-link">
           <img src={githubLogo} alt="GitHub" className="project-card-logo" />
@@ -47,6 +39,14 @@ const ProjectCard = ({ name, tech, github, livebool, live, desc, images }) => {
           </a>
         )}
       </div>
+      {techList.length > 0 && (
+        <div className="tilted-card-tech">
+          {techList.map((t, i) => (
+            <span className="tilted-card-tech-tag" key={i}>{t}</span>
+          ))}
+        </div>
+      )}
+      <ImageSlider images={images} />
     </div>
   );
 };
