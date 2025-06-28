@@ -215,7 +215,7 @@
   }
   
   .contact-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
   
   .contact-section-title {
@@ -242,5 +242,9 @@
   
   .social-text {
     font-size: 0.8rem;
+  }
+
+  .email-text {
+    font-size: 0.9rem;
   }
 } 

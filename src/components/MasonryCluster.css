@@ -208,9 +208,9 @@
   .grid-layout {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     height: auto;
-    gap: 10px;
+    gap: 8px;
     padding: 0;
     align-items: stretch;
     justify-content: flex-start;
@@ -220,44 +220,113 @@
     min-width: 0;
     max-width: 100%;
     margin: 0 auto;
-    border-radius: 14px;
-    padding: 10px 8px;
-    font-size: 15px;
+    padding: 8px 6px;
+    font-size: 13px;
     box-sizing: border-box;
+    min-height: 46px;
   }
   .github-block, .linkedin-block {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    margin: 0 6px 0 0;
+    width: 36px;
+    height: 36px;
+    margin: 0 4px 0 0;
     display: inline-flex;
     background-color: #6e6e6e;
   }
   .github-block {
-    margin-right: 6px;
+    margin-right: 4px;
   }
   .linkedin-block {
-    margin-left: 6px;
+    margin-left: 4px;
   }
   .hi-block, .location-block, .developer-block, .about-block, .experience-block, .projects-block, .connect-block {
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
-    border-radius: 14px;
-    font-size: 15px;
+    border-radius: 12px;
+    font-size: 13px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 36px;
+    min-height: 32px;
   }
 
+  /* Resume block specific styling */
+  .github-block {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hi-block {
+    width: 60%;
+  }
+
+  .hi-text {
+    font-size: 16px;
+  }
+
+  /* Location block specific styling */
+  .location-block {
+    width: 75%;
+  }
+
+  .location-text {
+    font-size: 18px;
+  }
+
+  /* Developer block specific styling */
+  .developer-block {
+    width: 100%;
+  }
+
+  .developer-text {
+    text-align: center;
+    font-size: 19px;
+  }
+
+  /* Connect block specific styling */
+  .connect-block {
+    width: 75%;
+  }
+
+  .connect-text {
+    font-size: 18px;
+  }
+
+  /* About block specific styling */
+  .about-block {
+    width: 75%;
+  }
+
+  .about-text { 
+    font-size: 18px;
+  }
+
+  /* Experience block specific styling */
+  .experience-block {
+    width: 100%;
+  }
+
+  .experience-text {
+    text-align: center;
+    font-size: 19px;
+  }
+
+  /* Projects block specific styling */
+  .projects-block {
+    width: 100%;
+  }
+
+  .projects-text {
+    font-size: 18px;
+  }
   .connect-block {
     writing-mode: unset;
     text-orientation: unset;
     transform: none;
-    min-height: 36px;
-    font-size: 15px;
+    min-height: 32px;
+    font-size: 13px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -266,7 +335,7 @@
     writing-mode: unset;
     text-orientation: unset;
     transform: none;
-    font-size: 15px;
+    font-size: 13px;
   }
   .empty-top-right, .empty-left-middle, .empty-bottom-right {
     display: none !important;
@@ -276,9 +345,9 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    width: 100%;
-    margin-bottom: 6px;
+    gap: 8px;
+    width: 90%;
+    margin-bottom: 4px;
   }
   .github-block, .linkedin-block {
     margin: 0;
@@ -291,6 +360,10 @@
 @media (max-width: 600px) {
   .masonry-cluster-root {
     font-size: 10px;
+  }
+
+  .masonry-cluster-root h1 {
+    font-size: 1.3rem;
   }
 
   .masonry-cluster-grid {
