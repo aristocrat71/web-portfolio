@@ -5,7 +5,7 @@
       "github": "https://github.com/aristocrat71/DogVision",
       "livebool": true,
       "live": "aristocrat71-dogvision.netlify.app",
-      "desc": "A web app that predicts the breed of dogs in images. Note : Couldn't host the model on a free server :(",
+      "desc": "Ever felt like \"Oh what breed that cute puppy is ?\" \nI have a solution for that ! A web app that predicts the breed of dogs in images.",
       "images": ["/images/dogvision.png", "/images/dogvision2.png", "/images/dogvision3.png"]
     },
     {
@@ -23,7 +23,7 @@
         "github": "https://github.com/aristocrat71/Bone.ai",
         "livebool": false,
         "live": "https://notliveyet.com/",
-        "desc": "A web app that can be used to detect fractures in X-ray of bones.",
+        "desc": "Oops ! Popped or cracked a bone? \nA web app that can be used to detect fractures in X-ray of bones.",
         "images": ["/images/boneai.jpg", "/images/boneai2.jpg"]
     }
   ] 

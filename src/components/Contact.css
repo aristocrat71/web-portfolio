@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500&display=swap');
+
 .contact-root {
   min-height: 100vh;
   width: 100vw;
@@ -22,6 +24,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Sora',sans-serif;
 }
 
 .contact-title {
@@ -53,21 +56,12 @@
   text-align: center;
 }
 
-.contact-section-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 16px;
-  font-family: 'Noto Sans Display', sans-serif;
-}
-
 .contact-description {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: #e3e3e3;
   text-wrap: balance;
   line-height: 1.6;
   margin-bottom: 24px;
-  font-family: 'Noto Sans Display', sans-serif;
 }
 
 .contact-email {
@@ -185,11 +179,7 @@
   .contact-title {
     font-size: 2.5rem;
   }
-  
-  .contact-section-title {
-    font-size: 1.5rem;
-  }
-  
+
   .contact-description {
     font-size: 1rem;
   }
@@ -216,10 +206,6 @@
   
   .contact-title {
     font-size: 1.75rem;
-  }
-  
-  .contact-section-title {
-    font-size: 1.3rem;
   }
   
   .contact-description {

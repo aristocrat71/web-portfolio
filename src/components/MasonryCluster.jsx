@@ -6,7 +6,7 @@ import linkedinIcon from '../assets/linkedin_new.png';
 const GLOW_RADIUS = 80;
 
 const blockKeys = [
-  'github', 'hi', 'location', 'empty-top-right',
+  'github', 'hi', 'location',
   'linkedin', 'empty-left-middle', 'developer',
   'connect', 'about', 'experience', 'projects', 'empty-bottom-right'
 ];
@@ -41,7 +41,7 @@ const MasonryCluster = () => {
     const blocks = containerRef.current.querySelectorAll('.block');
     const newGlow = [];
     blocks.forEach((block, idx) => {
-      if (block.classList.contains('empty-top-right') || block.classList.contains('empty-left-middle') || block.classList.contains('empty-bottom-right')) return;
+      if (block.classList.contains('empty-left-middle') || block.classList.contains('empty-bottom-right')) return;
       const rect = block.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
@@ -101,18 +101,19 @@ const MasonryCluster = () => {
             <img src={githubIcon} alt="GitHub" style={{ width: 44, height: 44 }} />
           </div>
         </a>
-        {/* Hi There block */}
-        <a className={`block hi-block${glowIndexes.includes(1) ? ' glow-near-cursor' : ''}`} href="https://drive.google.com/file/d/1eUYpN-34oYDib99id6B1CtPAyxouc4Es/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-          <div className="hi-text">&gt;_resume</div>
-        </a>
+        {/* Software Developer block */}
+        <div className={`block developer-block${glowIndexes.includes(6) ? ' glow-near-cursor' : ''}`}>
+          <div className="developer-text">
+            <div>Software Developer</div>
+            <div>//Data Science</div>
+          </div>
+        </div>
         {/* Location block (hyperlinked) */}
         <a className={`block location-block${glowIndexes.includes(2) ? ' glow-near-cursor' : ''}`} href="https://maps.app.goo.gl/12gnHwGSMFruFg9H6" target="_blank" rel="noopener noreferrer">
           <div className="location-text">
             <div>📍Pune, India</div>
           </div>
         </a>
-        {/* Empty block top right */}
-        <div className="block empty-top-right"></div>
         {/* LinkedIn block (hyperlinked) */}
         <a className={`block linkedin-block${glowIndexes.includes(4) ? ' glow-near-cursor' : ''}`} href="https://www.linkedin.com/in/mitul-sheth71/" target="_blank" rel="noopener noreferrer">
           <div className="linkedin-icon">
@@ -121,13 +122,10 @@ const MasonryCluster = () => {
         </a>
         {/* Empty block left middle */}
         <div className="block empty-left-middle"></div>
-        {/* Software Developer block */}
-        <div className={`block developer-block${glowIndexes.includes(6) ? ' glow-near-cursor' : ''}`}>
-          <div className="developer-text">
-            <div>Software Developer</div>
-            <div>//Data Science</div>
-          </div>
-        </div>
+        {/* Projects block (hyperlinked) */}
+        <a className={`block projects-block${glowIndexes.includes(10) ? ' glow-near-cursor' : ''}`} href="#projects">
+          <div className="projects-text">Projects</div>
+        </a>
         {/* Let's Connect block (hyperlinked) */}
         <a className={`block connect-block${glowIndexes.includes(7) ? ' glow-near-cursor' : ''}`} href="#contact">
           <div className="connect-text">Let's Connect</div>
@@ -140,9 +138,9 @@ const MasonryCluster = () => {
         <a className={`block about-block${glowIndexes.includes(8) ? ' glow-near-cursor' : ''}`} href="#about">
           <div className="about-text">About Me</div>
         </a>
-        {/* Projects block (hyperlinked) */}
-        <a className={`block projects-block${glowIndexes.includes(10) ? ' glow-near-cursor' : ''}`} href="#projects">
-          <div className="projects-text">Projects</div>
+        {/* Resume block (hyperlinked) */}
+        <a className={`block hi-block${glowIndexes.includes(1) ? ' glow-near-cursor' : ''}`} href="https://drive.google.com/file/d/1eUYpN-34oYDib99id6B1CtPAyxouc4Es/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <div className="hi-text">&gt;_resume</div>
         </a>
         {/* Empty block bottom right */}
         <div className="block empty-bottom-right"></div>

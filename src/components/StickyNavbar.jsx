@@ -4,8 +4,8 @@ import './StickyNavbar.css';
 const sections = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'experience', label: 'WorkXP' },
   { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Work' },
   { id: 'contact', label: 'Connect' },
 ];
 

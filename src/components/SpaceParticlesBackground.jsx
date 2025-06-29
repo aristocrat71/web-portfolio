@@ -12,9 +12,9 @@ function distance(x1, y1, x2, y2) {
 }
 
 const getResponsiveParticleCount = () => {
-  if (window.innerWidth <= 600) return 70;
-  if (window.innerWidth <= 900) return 110;
-  return 145;
+  if (window.innerWidth <= 600) return 40;
+  if (window.innerWidth <= 900) return 80;
+  return 120;
 };
 
 const SpaceParticlesBackground = () => {
@@ -50,7 +50,7 @@ const SpaceParticlesBackground = () => {
     let particles = Array.from({ length: particleCount }, () => ({
       x: randomBetween(0, width),
       y: randomBetween(0, height),
-      r: randomBetween(1.2, 2.2),
+      r: randomBetween(1.9, 3.2),
       color: COLORS[Math.floor(Math.random() * COLORS.length)],
       dx: randomBetween(-0.3, 0.3),
       dy: randomBetween(-0.3, 0.3),
@@ -92,10 +92,31 @@ const SpaceParticlesBackground = () => {
       // Draw particles
       for (let p of particles) {
         ctx.globalAlpha = p.opacity;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
         ctx.fillStyle = p.color;
-        ctx.fill();
+        
+        // Single block dot star
+        const size = p.r * 2; // Use diameter as square size
+        ctx.fillRect(p.x - p.r, p.y - p.r, size, size);
+        
+        // Alternative: Cross pattern star (uncomment to use)
+        // const pixelSize = 2.2; // Size of each pixel
+        // const spacing = 3; // Space between pixels
+        // 
+        // // Center pixel
+        // ctx.fillRect(p.x - pixelSize/2, p.y - pixelSize/2, pixelSize, pixelSize);
+        // 
+        // // Top pixel
+        // ctx.fillRect(p.x - pixelSize/2, p.y - pixelSize/2 - spacing, pixelSize, pixelSize);
+        // 
+        // // Bottom pixel
+        // ctx.fillRect(p.x - pixelSize/2, p.y + pixelSize/2 + spacing - pixelSize, pixelSize, pixelSize);
+        // 
+        // // Left pixel
+        // ctx.fillRect(p.x - pixelSize/2 - spacing, p.y - pixelSize/2, pixelSize, pixelSize);
+        // 
+        // // Right pixel
+        // ctx.fillRect(p.x + pixelSize/2 + spacing - pixelSize, p.y - pixelSize/2, pixelSize, pixelSize);
+        
         p.x += p.dx;
         p.y += p.dy;
         if (p.x < 0 || p.x > width) p.dx *= -1;

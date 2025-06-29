@@ -26,13 +26,12 @@ const Contact = () => {
   return (
     <section className="contact-root" id="contact">
       <div className="contact-content">
-        <h1 className="contact-title">&gt;_contact<span className="dot-accent">.</span></h1>
+        <h1 className="contact-title">&gt;_connect<span className="dot-accent">.</span></h1>
         
         <div className="contact-info">
           <div className="contact-section">
-            <h2 className="contact-section-title">Get in Touch</h2>
             <p className="contact-description">
-              I'm always open to discussing new opportunities, interesting projects, or open source contributions or you know, chit-chat ? :)
+              Always open to discoveries and collaborations!
             </p>
             
             <div className="contact-email" onClick={handleEmailClick}>

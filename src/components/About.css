@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500&display=swap');
 
 .about-root {
   min-height: 100vh;
@@ -57,8 +58,41 @@
   justify-content: center;
 }
 
-.about-description {
+.about-left-section {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.about-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image {
+  width: 300px;
+  height: 328px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 16px 0 rgba(16, 20, 40, 0.15);
+  border: 2px solid rgba(108, 99, 255, 0.2);
+}
+
+.about-right-section {
   flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.about-description {
+  flex: 1;
   font-size: 1.2rem;
   line-height: 1.7;
   color: #e3e3e3;
@@ -66,8 +100,7 @@
   border-radius: 18px;
   padding: 28px 24px;
   box-shadow: 0 2px 12px 0 rgba(16, 20, 40, 0.10);
-  min-width: 260px;
-  max-width: 420px;
+  font-family: 'Sora',sans-serif;
 }
 
 .about-highlight {
@@ -79,8 +112,9 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
   min-width: 220px;
+  font-family: 'Sora',sans-serif;
 }
 
 .about-section {
@@ -110,7 +144,7 @@
 .about-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 5px;
 }
 
 .about-tag {
@@ -131,6 +165,37 @@
   color: #fff;
 }
 
+.about-perks-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+}
+
+.about-perks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  font-family: 'Sora',sans-serif;
+}
+
+.about-perks-list li {
+  background: rgba(108, 99, 255, 0.2);
+  color: #fff;
+  border-radius: 16px;
+  padding: 10px 18px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px 0 rgba(108, 99, 255, 0.3), 0 0 12px 0 rgba(108, 99, 255, 0.1);
+  border: 2px solid rgba(108, 99, 255, 0.4);
+  text-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+}
+
 @media (max-width: 900px) {
   .about-content {
     padding: 32px 8vw 24px 8vw;
@@ -140,12 +205,15 @@
     gap: 32px;
     align-items: stretch;
   }
-  .about-description, .about-skills {
+  .about-left-section, .about-right-section {
     max-width: 95%;
     min-width: 0;
     width: 100%;
   }
-
+  .about-image {
+    width: 220px;
+    height: 275px;
+  }
 }
 
 @media (max-width: 600px) {

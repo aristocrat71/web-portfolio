@@ -4,26 +4,38 @@ import projects from '../data/projects.json';
 import githubLogo from '../assets/github_inv.png';
 import liveLogo from '../assets/live-icon.png';
 import ImageSlider from './ImageSlider';
-import { Link } from 'react-router-dom';
+import StickyNavbar from './StickyNavbar';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Projects = () => {
-  // Show only the first 3 projects
-  const displayedProjects = projects.slice(0, 3);
+const ProjectsPage = () => {
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate('/');
+    // Wait for navigation to complete, then scroll to projects section
+    setTimeout(() => {
+      const projectsSection = document.getElementById('projects');
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   return (
-    <section className="project-root" id="projects">
+    <div className="projects-page">
+      <StickyNavbar />
+      <div className="projects-page-header">
+        <button onClick={handleBackClick} className="back-link">← Back</button>
+        <h1 className="project-title">&gt;_all_projects<span className="dot-accent">.</span></h1>
+      </div>
       <div className="project-content">
-        <h1 className="project-title">&gt;_projects<span className="dot-accent">.</span></h1>
         <div className="project-cards-row">
-          {displayedProjects.map((proj, idx) => (
+          {projects.map((proj, idx) => (
             <ProjectCard key={idx} {...proj} />
           ))}
         </div>
-        <div className="more-projects-link">
-          <Link to="/projects" className="more-projects-text">View All Projects</Link>
-        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
@@ -64,4 +76,4 @@ const ProjectCard = ({ name, tech, github, livebool, live, desc, images }) => {
   );
 };
 
-export default Projects; 
+export default ProjectsPage; 
